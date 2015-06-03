@@ -1,5 +1,6 @@
 # Django settings for djangopool project.
 import os
+from os.path import abspath, basename, dirname, join, normpath
 # from settings import PROJECT_ROOT
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -109,11 +110,11 @@ ROOT_URLCONF = 'djangopool.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'djangopool.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+# TEMPLATE_DIRS = (
+#     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+#     # Always use forward slashes, even on Windows.
+#     # Don't forget to use absolute paths, not relative paths.
+# )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -173,3 +174,7 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_DIRS = (
+    normpath(join(BASE_DIR, '/djangopool/templates')),
+)

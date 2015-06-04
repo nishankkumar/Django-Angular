@@ -18,5 +18,4 @@ urlpatterns = patterns('',
     # url(r'^ui_statics/$', TemplateView.as_view(template_name="ui_statics/home.html"), name='ui_statics'),
     url(r'^ui_statics/$', TemplateView.as_view(template_name="ui_statics/index.html"), name='index')
     # url(r'^ui_statics/$', TemplateView.as_view(template_name="index.html"), name='index')
-    
 )

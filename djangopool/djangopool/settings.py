@@ -3,6 +3,7 @@ import os
 from os.path import abspath, basename, dirname, join, normpath
 # from settings import PROJECT_ROOT
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# django.contrib.auth.LOGIN_URL = '/'   
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -124,6 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
+    'login',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -176,5 +178,6 @@ TEMPLATES = [
 ]
 
 TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'templates'),
     normpath(join(BASE_DIR, '/djangopool/templates')),
 )

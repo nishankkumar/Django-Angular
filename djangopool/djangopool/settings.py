@@ -181,3 +181,5 @@ TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates'),
     normpath(join(BASE_DIR, '/djangopool/templates')),
 )
+
+AUTH_USER_MODEL = 'polls.MyUser'

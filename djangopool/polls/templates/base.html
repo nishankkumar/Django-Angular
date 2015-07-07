@@ -1,8 +1,12 @@
 {% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}  <a href="{% url 'polls:logout' %}">[logout]</a></p>
+	{% comment%}
+    <p>Welcome, {{ user.username }}  <a href="{% url 'login:logout' %}">[logout]</a></p>
 	<!-- <a href="{% url 'polls:logout' %}">[logout]</a>     -->
+	{% endcomment%}
 {% else %}
-    <p>Welcome, Guest <a href="{% url 'polls:login' %}">[login]</a></p>
+	{% comment%}
+    <p>Welcome, Guest <a href="{% url 'login:login' %}">[login]</a></p>
+	{% endcomment%}
 {% endif %}
 {% block content %}
 {% endblock %}

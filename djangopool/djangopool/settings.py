@@ -126,8 +126,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'login',
+    'account',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    # 'emailusernames',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -180,4 +182,11 @@ TEMPLATES = [
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates'),
     normpath(join(BASE_DIR, '/djangopool/templates')),
+)
+
+# AUTH_USER_MODEL = 'MyUser'
+AUTHENTICATION_BACKENDS = (
+    'emailusernames.backends.EmailAuthBackend',
+    # Uncomment the following to make Django tests pass:
+    # 'django.contrib.auth.backends.ModelBackend',
 )

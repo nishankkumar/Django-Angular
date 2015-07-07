@@ -3,5 +3,8 @@
 {% block head %}Welcome to Django{% endblock %}
 {% block content %}
     <p>Welcome {{ user.username }} !!!</p>
+    <p>Welcome {{ user.address }} !!!</p>
+    <p>Welcome {{ user.password }} !!!</p>
+    <p>Welcome {{ user.email }} !!!</p>
     <a href="/logout/">Logout</a>
 {% endblock %}

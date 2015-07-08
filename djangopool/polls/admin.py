@@ -9,12 +9,12 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 from .models import MyUser
 
-
 class ChoiceInline(admin.StackedInline):
     model = Choice
     extra = 3
 
 admin.site.register(Choice)
+# admin.site.register(Other)
 # admin.site.register(Question)
 
 class QuestionAdmin(admin.ModelAdmin):

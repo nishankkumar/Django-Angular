@@ -16,20 +16,21 @@ from . import views
 # ]
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^$', login_required(views.IndexView.as_view()), name='index'),
+    # url(r'^profile/$', login_required(views.ProfileView.as_view()), name='profile'),
     url(r'^(?P<pk>[0-9]+)/$', login_required(views.DetailView.as_view()), name='detail'),
     url(r'^(?P<pk>[0-9]+)/results/$', login_required(views.ResultsView.as_view()), name='results'),
     url(r'^(?P<question_id>[0-9]+)/vote/$', login_required(views.vote), name='vote'),
-    url(
-        r'^login/$',
-        'django.contrib.auth.views.login',
-        name='login',
-        kwargs={'template_name': 'polls/login.html'}
-    ),
-    url(
-        r'^logout/$',
-        'django.contrib.auth.views.logout',
-        name='logout',
-        kwargs={'next_page': '/'}
-    ),
+    # url(
+    #     r'^login/$',
+    #     'django.contrib.auth.views.login',
+    #     name='login',
+    #     kwargs={'template_name': 'polls/login.html'}
+    # ),
+    # url(
+    #     r'^logout/$',
+    #     'django.contrib.auth.views.logout',
+    #     name='logout',
+    #     kwargs={'next_page': '/'}
+    # ),
 ]

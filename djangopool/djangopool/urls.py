@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic.base import TemplateView
 # Uncomment the next two lines to enable the admin:
+from django.contrib.auth.decorators import login_required
 from django.contrib import admin
 from login.views import *
 admin.autodiscover()
@@ -23,7 +24,10 @@ urlpatterns = patterns('',
     # url(r'^$', include('accounts.urls', namespace="accounts")),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/', include('polls.urls', namespace="polls")),
+    url(r'^profile/', include('pro.urls', namespace="pro")),
+    # url(r'^profile/$', login_required(views.ProfileView.as_view()), name='profile'),
     # url(r'^ui_statics/$', TemplateView.as_view(template_name="ui_statics/home.html"), name='ui_statics'),
+    # url(r'^dashboard/$', login_required(patient_views.DashboardView.as_view()), name='dashboard'),
     url(r'^ui_statics/$', TemplateView.as_view(template_name="ui_statics/index.html"), name='index')
     # url(r'^ui_statics/$', TemplateView.as_view(template_name="index.html"), name='index')
 )

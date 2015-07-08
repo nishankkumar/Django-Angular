@@ -1,0 +1,60 @@
+{% load staticfiles compress %}
+<!DOCTYPE html>
+<html class="default">
+<head>
+    <title>Test {% block title %}{% endblock %}</title>
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black" /> -->
+    <meta name="viewport" content="width=640, user-scalable=no">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+    {% block styles %}
+    {% compress css %}
+        <!-- <link href="{% static 'less/style/style.less' %}" type="text/less" rel="stylesheet" /> -->
+    {% endcompress %}
+    {% endblock %}
+
+
+    {% block scripts %}
+    {% compress js %}
+    {% endcompress %}
+    {% endblock %}
+
+
+    {% block local_scripts %}
+    {% endblock %}
+
+    {% block local_styles %}
+    {% endblock %}
+</head>
+
+<body>
+{% block body %}
+
+{% block nav_menu %}
+{% endblock %}
+
+<div class="main-wrap">
+    <header class="header js-header-section">
+        {% block header %}{% endblock %}
+    </header>
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+    <footer class="footer">
+        {% block footer %}{% endblock %}
+    </footer>
+</div>
+
+{% endblock %}
+{% block extra_scripts %}
+{% endblock %}
+
+{% block bootstrap_modal %}
+{% endblock %}
+</body>
+</html>

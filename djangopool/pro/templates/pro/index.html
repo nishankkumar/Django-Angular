@@ -4,4 +4,24 @@
 	<h1>Welcome</h1>
 	<a href="{% static '/logout' %}">Logout</a>
 	<a href="{% static '/polls' %}">Question List</a>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tr>
+                <th class="success">Gender</th>
+                <th class="active">Address</th>
+                <th class="warning">Path</th>
+                <th class="danger">State</th>
+                <th class="info">Mobile</th>
+            </tr>
+            {% for item in data_doc %}
+            <tr> 
+                <td class="success">{{ item.gender }}</td>
+                <td class="active">{{ item.address }}</td>
+                <td class="warning">{{ item.path }}</td>
+                <td class="danger">{{ item.state }}</td>
+                <td class="info">{{ item.mobile }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

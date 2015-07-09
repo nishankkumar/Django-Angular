@@ -19,7 +19,7 @@ from django.views.generic import View
 #         return Question.objects.order_by('-pub_date')[:5]
 
 
-# class DetailView(generic.DetailView):
+# class DetailView(generic):
 #     model = Question
 #     template_name = 'polls/detail.html'
 
@@ -28,9 +28,16 @@ from django.views.generic import View
 #     model = Question
 #     template_name = 'polls/results.html'
 
-class ProfileView(generic.TemplateView):
-    model = Other
+class ProfileView(generic.ListView):
+    # model = Other
+    # queryset = Other.objects.all()
+    context_object_name = 'data_doc'
     template_name = 'pro/index.html'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        # return Other.objects.order_by('-pub_date')[:5]
+        return Other.objects.all()
     # def get_queryset(self):
     #     """Return the last five published questions."""
     #     return Other.objects

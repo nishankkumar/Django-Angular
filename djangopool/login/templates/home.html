@@ -2,6 +2,8 @@
 {% block title %}Welcome to Django{% endblock %}
 {% block head %}Welcome to Django{% endblock %}
 {% block content %}
-    <p>Welcome {{ user.username }} !!!</p>
+    <p>Welcome {{ user.email }} !!!</p>
     <a href="/logout/">Logout</a>
+    <a href="/polls/">Polls Application</a>
+    <a href="/profile/">Profile Page</a>
 {% endblock %}

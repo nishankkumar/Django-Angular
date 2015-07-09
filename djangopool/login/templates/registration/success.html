@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block title %}Registration Successful{% endblock %}
 {% block head %}
  Registration Completed Successfully
@@ -6,4 +7,5 @@
 {% block content %}
     Thank you for registering.
     <a href="/">Login</a> 
+    <a href="{% static '/logout' %}">Logout</a> 
 {% endblock %}

@@ -28,9 +28,9 @@ from django.views.generic import View
 #     model = Question
 #     template_name = 'polls/results.html'
 
-class ProfileView(generic.DetailView):
+class ProfileView(generic.TemplateView):
     model = Other
-    template_name = 'polls/profile.html'
+    template_name = 'pro/index.html'
     # def get_queryset(self):
     #     """Return the last five published questions."""
     #     return Other.objects

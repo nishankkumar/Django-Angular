@@ -135,6 +135,7 @@ INSTALLED_APPS = (
     'compressor',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'rest_framework',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -198,3 +199,9 @@ STATICFILES_FINDERS = (
     # "staticfiles.finders.AppDirectoriesFinder",
     "compressor.finders.CompressorFinder",
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10
+}
+

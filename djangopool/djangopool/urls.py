@@ -4,7 +4,12 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.contrib import admin
 from login.views import *
+from rest_framework import routers
+from login import views
+router = routers.DefaultRouter()
 admin.autodiscover()
+router.register(r'users', views.UserViewSet)
+# router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = patterns('',
     # Examples:
@@ -28,6 +33,7 @@ urlpatterns = patterns('',
     # url(r'^profile/$', login_required(views.ProfileView.as_view()), name='profile'),
     # url(r'^ui_statics/$', TemplateView.as_view(template_name="ui_statics/home.html"), name='ui_statics'),
     # url(r'^dashboard/$', login_required(patient_views.DashboardView.as_view()), name='dashboard'),
-    url(r'^ui_statics/$', TemplateView.as_view(template_name="ui_statics/index.html"), name='index')
+    url(r'^ui_statics/$', TemplateView.as_view(template_name="ui_statics/index.html"), name='index'),
     # url(r'^ui_statics/$', TemplateView.as_view(template_name="index.html"), name='index')
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 )

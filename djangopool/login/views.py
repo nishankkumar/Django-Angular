@@ -9,6 +9,12 @@ from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+    
+from django.contrib.auth.models import User, Group
+from polls.models import MyUser, MyUserManager
+from rest_framework import viewsets
+from login.serializers import UserSerializer, GroupSerializer
+
  
 @csrf_protect
 def register(request):
@@ -47,4 +53,18 @@ def home(request):
     'home.html',
     { 'user': request.user }
     )
-    
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = MyUser.objects.all()
+    serializer_class = UserSerializer
+
+
+# class GroupViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint that allows groups to be viewed or edited.
+#     """
+#     # queryset = MyUserManager.objects.all()
+#     serializer_class = GroupSerializer
